@@ -30,6 +30,7 @@ public class Converter {
         }
 
         public static double makeTheConversion(Currency currency, String convertTo, int amount) {
+            //take an object to convert, a String to find and an amount.
             double result = 0;
             if ( convertTo.equalsIgnoreCase(currency.getCurrency1())){
                 result = amount * currency.getExchangeRate1();

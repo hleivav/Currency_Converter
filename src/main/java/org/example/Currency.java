@@ -18,9 +18,9 @@ public class Currency {
     public double getExchangeRate1(){return exchangeRate1;}
     public String getCurrency2(){return currency2;}
     public double getExchangeRate2(){return exchangeRate2;}
-    //Setters
-    public void setCurrency1(String currency){this.currency1 = currency;}
+    //Setters won't be used
+    /*public void setCurrency1(String currency){this.currency1 = currency;}
     public void setExchangeRate1(double exchangeRate){this.exchangeRate1 = exchangeRate;}
     public void setCurrency2(String currency){this.currency2 = currency;}
-    public void setExchangeRate2(double exchangeRate){this.exchangeRate2 = exchangeRate;}
+    public void setExchangeRate2(double exchangeRate){this.exchangeRate2 = exchangeRate;}*/
 }
