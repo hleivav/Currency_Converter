@@ -1,7 +1,7 @@
 package org.example;
 
 public class Converter {
-
+    // Static class that handles the convertion operations.
     public static class ConverterHelp {
 
         public static void appStart() {
