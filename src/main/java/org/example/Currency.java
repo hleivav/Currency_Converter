@@ -1,5 +1,8 @@
 package org.example;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Currency {
     private final String currency1;
     private final double exchangeRate1;
@@ -18,4 +21,20 @@ public class Currency {
     public double getExchangeRate1(){return exchangeRate1;}
     //public String getCurrency2(){return currency2;}
     public double getExchangeRate2(){return exchangeRate2;}
+
+    public void makeTheConversion(Currency currency, String convertTo, int amount) {
+        //take an object to convert, a String to find and an amount.
+
+        double result = 0;
+        if ( convertTo.equalsIgnoreCase(currency.getCurrency1())){
+            result = amount * currency.getExchangeRate1();
+        }else {
+            result = amount * currency.getExchangeRate2();
+        }
+        BigDecimal bd = new BigDecimal(result);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        Converter.ConverterHelp.print("That is " + bd.doubleValue() + " in " + convertTo);
+    }
+
+
 }

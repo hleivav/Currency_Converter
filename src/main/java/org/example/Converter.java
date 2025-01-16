@@ -44,16 +44,16 @@ public class Converter {
                 double result = 0;
                 switch (userChoice){
                     case "1":
-                        makeTheConversion(SEK, "USD", amountToConvert);
+                        SEK.makeTheConversion(SEK, "USD", amountToConvert);
                         break;
                     case "2":
-                        makeTheConversion(USD, "SEK", amountToConvert);
+                        USD.makeTheConversion(USD, "SEK", amountToConvert);
                         break;
                     case "3":
-                        makeTheConversion(SEK, "EUR", amountToConvert);
+                        SEK.makeTheConversion(SEK, "EUR", amountToConvert);
                         break;
                     case "4":
-                        makeTheConversion(EUR, "SEK", amountToConvert);
+                        EUR.makeTheConversion(EUR, "SEK", amountToConvert);
                         break;
                     default:
                         print("invalid choice!");
@@ -65,20 +65,6 @@ public class Converter {
                 done = true;
             }
 
-        }
-
-        public static void makeTheConversion(Currency currency, String convertTo, int amount) {
-            //take an object to convert, a String to find and an amount.
-
-            double result = 0;
-            if ( convertTo.equalsIgnoreCase(currency.getCurrency1())){
-                result = amount * currency.getExchangeRate1();
-            }else {
-                result = amount * currency.getExchangeRate2();
-            }
-            BigDecimal bd = new BigDecimal(result);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            print("That is " + bd.doubleValue() + " in " + convertTo);
         }
 
         public static void print(String stringToPrint){
