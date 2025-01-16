@@ -37,6 +37,4 @@ public class Currency {
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         Converter.ConverterHelp.print(amount + " " + this.name +  " is " + bd.doubleValue() + " in " + convertTo);
     }
-
-
 }
