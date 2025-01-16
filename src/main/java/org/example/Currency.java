@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Currency {
+    private final String name;
     private final String currency1;
     private final double exchangeRate1;
     private final String currency2;
     private final double exchangeRate2;
 
     //Constructor
-    public Currency (String currency1, double exchangeRate1, String currency2, double exchangeRate2){
+    public Currency (String name, String currency1, double exchangeRate1, String currency2, double exchangeRate2){
+        this.name = name;
         this.currency1 = currency1;
         this.exchangeRate1 = exchangeRate1;
         this.currency2 = currency2;
@@ -33,7 +35,7 @@ public class Currency {
         }
         BigDecimal bd = new BigDecimal(result);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        Converter.ConverterHelp.print("That is " + bd.doubleValue() + " in " + convertTo);
+        Converter.ConverterHelp.print(amount + " " + this.name +  " is " + bd.doubleValue() + " in " + convertTo);
     }
 
 

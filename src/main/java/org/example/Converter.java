@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class Converter {
     // Static class that handles the convertion operations.
+    static String [] optionsArray = { "Exit", "SEK to USD", "USD to SEK", "SEK to EURO", "EURO to SEK"};
 
     public static class ConverterHelp {
         static boolean done = false;
         //create currency objects with the three currencies.
-        static Currency SEK = new Currency("USD", 0.0896, "EUR", 0.0869);
-        static Currency USD = new Currency("SEK", 11.1549, "EUR", 0.9699);
-        static Currency EUR = new Currency("SEK", 11.501, "USD", 1.031);
+        static Currency SEK = new Currency("SEK", "USD", 0.0896, "EUR", 0.0869);
+        static Currency USD = new Currency("USD", "SEK", 11.1549, "EUR", 0.9699);
+        static Currency EUR = new Currency("EUR", "SEK", 11.501, "USD", 1.031);
 
         public static void appStart() {
             //initiates a loop that keeps the program running until the user ends it.
@@ -25,7 +26,7 @@ public class Converter {
         public static void menuCreator() {
             //creates and print a menu that will be called every time the user needs a new convertion.
             //print("Det ger: " +  makeTheConversion(SEK, "USD", 400));
-            String [] optionsArray = { "Exit", "SEK to USD", "USD to SEK", "SEK to EURO", "EURO to SEK"};
+
             print("Choose the number of the operation you need.");
             for (int i = 1; i < optionsArray.length; i++) {
                 print( i + ". Convert " + optionsArray[i]);
@@ -39,9 +40,10 @@ public class Converter {
             Scanner scanner = new Scanner(System.in);
             String userChoice = scanner.nextLine();
             if (!userChoice.equals("0")){
-                print("What is the amount to convert?");
+                print("Your choice is " + optionsArray[Integer.parseInt(userChoice)]);
+                print("What is the amount of " + optionsArray[Integer.parseInt(userChoice)].substring(0, 3) + " to convert?");
                 int amountToConvert = Integer.parseInt(scanner.nextLine());
-                double result = 0;
+                //double result = 0;
                 switch (userChoice){
                     case "1":
                         SEK.makeTheConversion(SEK, "USD", amountToConvert);
@@ -59,7 +61,6 @@ public class Converter {
                         print("invalid choice!");
                         break;
                 }
-                print("Do you need a new convertion? Y/N");
             } else {
                 print("thanks by using our program and welcome back!");
                 done = true;
